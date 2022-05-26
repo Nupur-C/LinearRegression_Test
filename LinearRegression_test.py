@@ -12,3 +12,12 @@ model = LinearRegression()
 model.fit(df[['area']],df.price)
 
 model.predict([[5000]])
+
+import pickle
+with open('demo.pkl', 'wb') as files:
+    pickle.dump(model, files)
+
+with open('demo.pkl' , 'rb') as f:
+    lr = pickle.load(f)
+lr.predict([[5000]])
+
